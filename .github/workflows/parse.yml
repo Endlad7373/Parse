@@ -2,8 +2,9 @@ name: Hourly Curl Request (UZT)
 
 on:
   schedule:
+    # Автозапуск по UTC (9:40-20:40 UZT = 4:40-15:40 UTC)
     - cron: '40 4-15 * * *'
-    workflow_dispatch: {}
+  workflow_dispatch:  # Ручной запуск без параметров
 
 jobs:
   curl-request:
