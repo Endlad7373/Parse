@@ -1,0 +1,14 @@
+name: Hourly Curl Request (UZT)
+
+on:
+  schedule:
+    # Каждый час в :40 с 9:40 до 20:40 (UZT = UTC+5)
+    # В UTC это будет 4:40-15:40 (так как 9:40 UZT = 4:40 UTC)
+    - cron: '40 4-15 * * *'
+
+jobs:
+  curl-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make curl request
+        run: curl http://94.198.220.57:5000/
